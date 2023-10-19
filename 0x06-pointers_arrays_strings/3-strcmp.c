@@ -6,6 +6,8 @@
  *
  * Return: a[i] - b[i]
  */
+
+
 int _strcmp(char *a, char *b)
 {
 	int i;
