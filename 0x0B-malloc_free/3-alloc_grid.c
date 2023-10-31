@@ -9,50 +9,29 @@
  */
 int **alloc_grid(int width, int height)
 {
-	int **three;
-
+	int **tee;
 	int a, b;
 
-
-
 	if (width <= 0 || height <= 0)
-
 		return (NULL);
-
-
-
-	three = malloc(sizeof(int *) * height);
-
-
-
-	if (three == NULL)
-
+	tee = malloc(sizeof(int *) * height);
+	if (tee == NULL)
 		return (NULL);
-
-
-
 	for (a = 0; a < height; a++)
-
 	{
-
-		three[a] = malloc(sizeof(int) * width);
-
-
-
-		if (three[a] == NULL)
-
+		tee[a] = malloc(sizeof(int) * width);
+		if (tee[a] == NULL)
 		{
 			for (; a >= 0; a--)
-				free(three[a]);
-			free(three);
-
+				free(tee[a]);
+			free(tee);
 			return (NULL);
 		}
 	}
 	for (a = 0; a < height; a++)
 	{
 		for (b = 0; b < width; b++)
-			three[a][b] = 0;
+			tee[a][b] = 0;
 	}
-	return (three);
+	return (tee);
 }
