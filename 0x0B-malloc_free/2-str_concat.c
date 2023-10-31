@@ -1,48 +1,42 @@
 #include "main.h"
 #include <stdlib.h>
-
+#include <stdio.h>
 /**
  * str_concat - concatenates two strings
  * @s1: first string
  * @s2: second string
- * Return: a pointer on success, NULL on failure
+ * Return: concatenated string of s1 and s2
  */
 char *str_concat(char *s1, char *s2)
 {
 	char *constr;
-	int x, y;
+	int x, yl;
 
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
-
-	x = y = 0;
-
+	x = yl = 0;
 	while (s1[x] != '\0')
 		x++;
+	while (s2[yl] != '\0')
+		yl++;
+	constr = malloc(sizeof(char) * (x + yl + 1));
+	if (constr == NULL)
+		return (NULL);
+	x = yl = 0;
+	while (s1[x] != '\0')
 	{
-		while (s2[y] != '\0')
-			y++;
+		constr[x] = s1[x];
+		x++;
 	}
-	constr = malloc(sizeof(char) * (x + y + 1));
-			if (constr == NULL)
-			return (NULL);
-
-			x = y = 0;
-
-			while (s1[x] != '\0')
-			{
-				constr[x] = s1[x];
-				x++;
-			}
-			while (s2[y] != '\0')
-			{
-				constr[y] = s2[y];
-				x++, y++;
-			}
-			constr[x] = '\0';
-			return (constr);
+	while (s2[yl] != '\0')
+	{
+		constr[x] = s2[yl];
+		x++, yl++;
+	}
+	constr[x] = '\0';
+	return (constr);
 }
 
 
