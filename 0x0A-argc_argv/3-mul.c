@@ -48,21 +48,24 @@ int _atoi(char *s)
  * main - prints the result of the multiplication
  * @argc: argument count
  * @argv: argument vector
- * Return: 0 for success
+ * Return: 0 for success, 1 otherwise
  */
 int main(int argc, char *argv[])
 {
-	int result, num1, num2;
+	int result, n1 = 0, n2 = 0;
 
-	if (argc < 3 || argc > 3)
-		printf("Error.\n");
-	return (1);
+	if (argc == 3)
 	{
-		num1 = atoi(argv[1]);
-		num2 = atoi(argv[2]);
-		result = num1 * num2;
+		n1 = _atoi(argv[1]);
+		n2 = _atoi(argv[2]);
+		result = n1 * n2;
 
 		printf("%d\n", result);
-		return (0);
 	}
+	else
+	{
+		printf("Error.\n");
+	return (1);
+	}
+	return (0);
 }
