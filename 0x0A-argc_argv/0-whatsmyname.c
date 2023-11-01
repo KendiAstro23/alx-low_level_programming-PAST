@@ -9,7 +9,10 @@
  */
 int main(int argc __attribute__((unused)), char *argv[])
 {
-	printf("%s\n", *argv);
+	if (argc > 0)
+		printf("%s\n", *argv);
+	else
+		printf("Program name not indicated.\n");
 	return (0);
 }
 
