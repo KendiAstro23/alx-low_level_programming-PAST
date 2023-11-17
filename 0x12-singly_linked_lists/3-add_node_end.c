@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 /**
- * add_node_end - inputs a node at the end 
+ * add_node_end - inputs a node at the end
  * @head: the first head
  * @str: string
  * Return: address or NULL
