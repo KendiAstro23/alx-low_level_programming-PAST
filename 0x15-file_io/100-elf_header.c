@@ -20,14 +20,14 @@ void print_error(const char *msg)
  */
 void read_elf_header(const char *filename)
 {
+	int i;
 	int fd = open(filename, O_RDONLY);
+	Elf32_Ehdr header32;
 
 	if (fd == -1)
 	{
 		print_error("Unable to open the file");
 	}
-	Elf32_Ehdr header32;
-	Elf64_Ehdr header64;
 
 	if (read(fd, &header32, sizeof(header32)) != sizeof(header32))
 	{
@@ -41,9 +41,9 @@ void read_elf_header(const char *filename)
 		print_error("Not an ELF file");
 	}
 	printf("ELF Header:\n");
-	printf("  Magic:   ");
+	printf("Magic:");
 
-	for (int i = 0; i < EI_NIDENT; ++i)
+	for (i = 0; i < EI_NIDENT; ++i)
 	{
 		printf(" %02x", header32.e_ident[i]);
 	}
